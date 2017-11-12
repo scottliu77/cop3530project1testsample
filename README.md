@@ -25,7 +25,7 @@ Note: Project 1 will be graded on the UF CISE Linux servers.
 
 ## Overview
 
-## Interface Test
+### Interface Test
 
 This test calls all the operations as defined in Part I of the project on a character SSLL.
 
