@@ -13,6 +13,8 @@ Disclaimer: This sample test suite is in no way as comprehensive as the actual t
 2. Add your `List.h` and `SSLL.h` files into the `/src` directory.
 3. run `make` from the project root directory.
 
+Note: Project 1 will be graded on the UF CISE Linux servers.
+
 ## Contributors
 
 * Jennifer Cremer
