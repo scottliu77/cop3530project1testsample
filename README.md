@@ -34,5 +34,5 @@ This test calls all the operations as defined in Part I of the project on a char
 1. Create a list of integers.
 2. Insert the first 10 nonnegative integers into the list.
 3. Verify the length is 10.
-4. Verify peek front returns 0.
+4. Verify peek front returns 9.
 4. Verify peek back returns 0.
