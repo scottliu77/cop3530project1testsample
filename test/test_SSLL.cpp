@@ -2,6 +2,8 @@
 #include <iostream>
 #include "SSLL.h"
 
+#include <iostream>
+
 SCENARIO ("INTERFACE TEST") {
 	GIVEN ("An SSLL of characters is created") {
 
@@ -91,6 +93,7 @@ SCENARIO ("INTERFACE TEST") {
 
 		delete list;
 	}
+	delete list;
 }
 
 
