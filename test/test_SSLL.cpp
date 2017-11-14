@@ -8,6 +8,10 @@
 
 #include <iostream>
 
+bool equals(const char& a, const char& b) {
+	return a == b;
+}
+
 SCENARIO ("INTERFACE TEST") {
 	GIVEN ("List of characters") {
 
@@ -71,9 +75,7 @@ SCENARIO ("INTERFACE TEST") {
 			}
 		}
 		WHEN ("Checking if the list contains element B") {
-			bool b = list->contains('B', [](const char& a, const char& b) {
-        					return a == b;
-   				   		});
+			bool b = list->contains('B', equals);
 			THEN ("It should return true") {
 				REQUIRE (b);
 			}
