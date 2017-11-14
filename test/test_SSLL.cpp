@@ -88,6 +88,7 @@ SCENARIO ("INTERFACE TEST") {
 					REQUIRE(*(arr+i) == expected[i]);
 				}
 			}
+			delete[] arr;
 		}
 		WHEN ("Clear is called") {
 			list->clear();

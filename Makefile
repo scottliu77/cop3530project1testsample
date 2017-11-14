@@ -4,7 +4,8 @@ CC=g++
 DEBUG_FLAGS=-g
 COMPILE_FLAGS=-I ./src -std=c++11
 
-all: alltests
+all: clean alltests
+
 clean:
 	rm -rf *.o testssll
 
