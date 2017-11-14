@@ -43,7 +43,7 @@ SCENARIO ("INTERFACE TEST") {
 			}
 		}
 		WHEN ("List length is checked") {
-			int len = list->length();
+			size_t len = list->length();
 			THEN ("Length should be 4") {
 				REQUIRE( len == 4);
 			}
@@ -62,7 +62,7 @@ SCENARIO ("INTERFACE TEST") {
 		}
 		WHEN ("Remove is called at position 0") {
 			char item = list->remove(0);
-			int len = list->length();
+			size_t len = list->length();
 			THEN ("Item should be D") {
 				REQUIRE(item == 'D');
 			}
@@ -82,14 +82,14 @@ SCENARIO ("INTERFACE TEST") {
 			char * arr = list->contents();
 			THEN ("Array items should be [D, A, B, C]") {
 				char expected[4] = {'D', 'A', 'B', 'C'};
-				for(int i = 0; i < list->length(); i++) {
+				for(size_t i = 0; i < list->length(); i++) {
 					REQUIRE(*(arr+i) == expected[i]);
 				}
 			}
 		}
 		WHEN ("Clear is called") {
 			list->clear();
-			int len = list->length();
+			size_t len = list->length();
 			THEN ("Length should be 0") {
 				REQUIRE(len == 0);
 			}
@@ -113,7 +113,7 @@ SCENARIO ("TEST 1") {
 			list->insert(i, 0);
 		
 		WHEN ("List length is checked") {
-			int len = list->length();
+			size_t len = list->length();
 			THEN ("Length should be 10") {
 				REQUIRE(len == 10);
 			}
