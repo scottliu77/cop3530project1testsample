@@ -1,12 +1,22 @@
 #include "catch.hpp"
-#include "SSLL.h"
+
+#include "SSLL.h"	
+#include "PSLL.h"
+#include "SDAL.h"
+#include "CDAL.h"
+#include "CBL.h"
 
 #include <iostream>
 
 SCENARIO ("INTERFACE TEST") {
-	GIVEN ("An SSLL of characters is created") {
+	GIVEN ("List of characters") {
 
-		cop3530::List<char> *list = new cop3530::SSLL<char>();
+		cop3530::List<char> * list  = new cop3530::SSLL<char>();
+		// cop3530::List<char> * list = new cop3530::PSLL<char>();
+		// cop3530::List<char> * list = new cop3530::SDAL<char>();
+		// cop3530::List<char> * list = new cop3530::CDAL<char>();
+		// cop3530::List<char> * list = new cop3530::CBL<char>();
+
 		list->insert('A', 0);
 		list->insert('B', 1);
 		list->push_back('C');
@@ -15,14 +25,12 @@ SCENARIO ("INTERFACE TEST") {
 
 		WHEN ("Peek front is called") {
 			char front = list->peek_front();
-
 			THEN ("Item should be D") {
 				REQUIRE(front == 'D');
 			}
 		}
 		WHEN ("Peek back is called") {
 			char back = list->peek_back();
-
 			THEN ("Item should be C") {
 				REQUIRE(back == 'C');
 			}
@@ -33,7 +41,6 @@ SCENARIO ("INTERFACE TEST") {
 			THEN ("Item at position 1 should be E") {
 				REQUIRE( item == 'E');
 			}
-
 		}
 		WHEN ("List length is checked") {
 			int len = list->length();
@@ -54,10 +61,8 @@ SCENARIO ("INTERFACE TEST") {
 			}
 		}
 		WHEN ("Remove is called at position 0") {
-			list->print(std::cout);
 			char item = list->remove(0);
 			int len = list->length();
-			list->print(std::cout);
 			THEN ("Item should be D") {
 				REQUIRE(item == 'D');
 			}
@@ -96,29 +101,31 @@ SCENARIO ("INTERFACE TEST") {
 
 
 SCENARIO ("TEST 1") {
-	GIVEN ("An SSLL of integers is created") {
+	GIVEN ("List of integers") {
 
-		cop3530::List<int> *list = new cop3530::SSLL<int>();
+		cop3530::List<int> * list = new cop3530::SSLL<int>();
+		// cop3530::List<char> * list = new cop3530::PSLL<char>();
+		// cop3530::List<char> * list = new cop3530::SDAL<char>();
+		// cop3530::List<char> * list = new cop3530::CDAL<char>();
+		// cop3530::List<char> * list = new cop3530::CBL<char>();
+		
 		for(int i = 0; i < 10; i++) 
 			list->insert(i, 0);
 		
 		WHEN ("List length is checked") {
 			int len = list->length();
-
 			THEN ("Length should be 10") {
 				REQUIRE(len == 10);
 			}
 		}
 		WHEN ("Peek front is called") {
 			int front = list->peek_front();
-
 			THEN ("Item at the front should be 9") {
 				REQUIRE(front == 9);
 			}
 		}
 		WHEN ("Peek back is called") {
 			int back = list->peek_back();
-
 			THEN ("Item at the back should be 0") {
 				REQUIRE(back == 0);
 			}
