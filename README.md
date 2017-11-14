@@ -5,7 +5,7 @@
 
 <!--This repository contains a sample test suite similar to the one used to test COP 3530 Project 1 for the Fall 2017 semester.--> 
 This repository contains a sample test suite similar to the one used to test Project 1. The purpose is for students to verify their List implementations provide the expected interface.
-<br>
+<br></br>
 Disclaimer: This sample test suite is in no way as comprehensive as the actual test suite nor is it a direct representation of how the actual tests will be.
 
 ## Directions
