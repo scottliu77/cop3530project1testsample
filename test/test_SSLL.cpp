@@ -1,5 +1,4 @@
 #include "catch.hpp"
-#include <iostream>
 #include "SSLL.h"
 
 #include <iostream>
@@ -93,7 +92,6 @@ SCENARIO ("INTERFACE TEST") {
 
 		delete list;
 	}
-	delete list;
 }
 
 
