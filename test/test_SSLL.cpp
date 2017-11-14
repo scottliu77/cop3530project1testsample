@@ -2,6 +2,8 @@
 
 #include "SSLL.h"
 
+#include <iostream>
+
 SCENARIO ("INTERFACE TEST") {
 	GIVEN ("An SSLL of characters is created") {
 		cop3530::List<char> *list = new cop3530::SSLL<char>();
@@ -94,6 +96,7 @@ SCENARIO ("INTERFACE TEST") {
 			}
 		}
 	}
+	delete list;
 }
 
 
