@@ -33,35 +33,24 @@ SCENARIO ("INTERFACE TEST") {
 				REQUIRE(front == 'D');
 			}
 		}
+
 		WHEN ("Peek back is called") {
 			char back = list->peek_back();
 			THEN ("Item should be C") {
 				REQUIRE(back == 'C');
 			}
 		}
-		WHEN ("Pop front is called") {
-                        char front = list->pop_front();
-                        THEN ("Item should be D") {
-                                REQUIRE(front == 'D');
-                        }
-                }
-                WHEN ("Pop back is called") {
-                        char back = list->pop_back();
-                        THEN ("Item should be C") {
-                                REQUIRE(back == 'C');
-                        }
-                }
 		WHEN ("Replaced is called with item E at position 1") {
 			list->replace('E', 1);
 			char item = list->item_at(1);
 			THEN ("Item at position 1 should be E") {
-				REQUIRE( item == 'E');
+				REQUIRE(item == 'E');
 			}
 		}
 		WHEN ("List length is checked") {
 			size_t len = list->length();
 			THEN ("Length should be 4") {
-				REQUIRE( len == 4);
+				REQUIRE(len == 4);
 			}
 		}
 		WHEN ("Checking if list is empty") {
@@ -70,6 +59,7 @@ SCENARIO ("INTERFACE TEST") {
 				REQUIRE(!empty);
 			}
 		}
+
 		WHEN ("Checking if list is full") {
 			bool full = list->is_full();
 			THEN ("It should return false") {
@@ -101,6 +91,18 @@ SCENARIO ("INTERFACE TEST") {
 				}
 			}
 			delete[] arr;
+		}
+		WHEN ("Pop front is called") {
+			char front = list->pop_front();
+			THEN ("Front item should be D") {
+				REQUIRE(front == 'D');
+			}
+		}
+		WHEN ("Pop back is called") {
+			char back = list->pop_back();
+			THEN ("Back item should be C") {
+				REQUIRE(back == 'C');
+			}
 		}
 		WHEN ("Clear is called") {
 			list->clear();
