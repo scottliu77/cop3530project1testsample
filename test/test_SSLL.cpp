@@ -39,6 +39,18 @@ SCENARIO ("INTERFACE TEST") {
 				REQUIRE(back == 'C');
 			}
 		}
+		WHEN ("Pop front is called") {
+                        char front = list->pop_front();
+                        THEN ("Item should be D") {
+                                REQUIRE(front == 'D');
+                        }
+                }
+                WHEN ("Pop back is called") {
+                        char back = list->pop_back();
+                        THEN ("Item should be C") {
+                                REQUIRE(back == 'C');
+                        }
+                }
 		WHEN ("Replaced is called with item E at position 1") {
 			list->replace('E', 1);
 			char item = list->item_at(1);
@@ -103,34 +115,49 @@ SCENARIO ("INTERFACE TEST") {
 }
 
 
-SCENARIO ("TEST 1") {
-	GIVEN ("List of integers") {
+class C {
+	public:
+		int a;
+		C() : C(0) {}
+		C(int a) : a(a) {}
+		inline bool operator == (const C& c) const {
+ 			return a == c.a;
+		}
+		inline friend std::ostream& operator << (std::ostream& stream, const C& c) {
+			return stream << c.a;
+        	}
+};
 
-		cop3530::List<int> * list = new cop3530::SSLL<int>();
-		// cop3530::List<char> * list = new cop3530::PSLL<char>();
-		// cop3530::List<char> * list = new cop3530::SDAL<char>();
-		// cop3530::List<char> * list = new cop3530::CDAL<char>();
-		// cop3530::List<char> * list = new cop3530::CBL<char>();
+SCENARIO ("TEST 1") {
+	GIVEN ("List of objects") {
+
+		cop3530::List<C> * list = new cop3530::SSLL<C>();
+		// cop3530::List<C> * list = new cop3530::PSLL<C>();
+		// cop3530::List<C> * list = new cop3530::SDAL<C>();
+		// cop3530::List<C> * list = new cop3530::CDAL<C>();
+		// cop3530::List<C> * list = new cop3530::CBL<C>();
 		
-		for(int i = 0; i < 10; i++) 
-			list->insert(i, 0);
+		C a(10), b(20), c(30);
+		list->insert(a, 0);
+		list->insert(b, 0);
+		list->insert(c, 0);
 		
 		WHEN ("List length is checked") {
 			size_t len = list->length();
-			THEN ("Length should be 10") {
-				REQUIRE(len == 10);
+			THEN ("Length should be 3") {
+				REQUIRE(len == 3);
 			}
 		}
 		WHEN ("Peek front is called") {
-			int front = list->peek_front();
+			C front = list->peek_front();
 			THEN ("Item at the front should be 9") {
-				REQUIRE(front == 9);
+				REQUIRE(front == c);
 			}
 		}
 		WHEN ("Peek back is called") {
-			int back = list->peek_back();
+			C back = list->peek_back();
 			THEN ("Item at the back should be 0") {
-				REQUIRE(back == 0);
+				REQUIRE(back == a);
 			}
 		}
 		
